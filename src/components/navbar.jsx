@@ -10,7 +10,7 @@ class Navbar extends Component {
     <span className="icon-bar" />
   </a>
   <div className="navbar-inner">
-    <a className="brand" href="index.html"><img src="themes/images/logo.png" alt="Bootsshop" /></a>
+    <a className="brand" href="/"><img src="themes/images/logo.png" alt="Bootsshop" /></a>
     <form className="form-inline navbar-search" method="post" action="products.html">
       <input id="srchFld" className="srchTxt" type="text" />
       <select className="srchTxt">
