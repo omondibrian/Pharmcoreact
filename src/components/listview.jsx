@@ -3,25 +3,17 @@ import ListVeiwProduct from './listViewProduct';
 
 class Listveiw extends Component {
     state = { 
-        productimage:this.props.productimage,
-        title:this.props.title,
-        description:this.props.description,
-        price:this.props.price
+       products:this.props.products
     }
-    componentDidMount(){
-        console.log("listview mounted on the dom")
-    }
+   
     render() { 
-
+        const {products}=this.state;
+        const Listitems = products.map((product) => <ListVeiwProduct {...product} />)
+            
+        console.log("listview state is =" ,this.state)
         return ( 
             <div className="tab-pane active" >
-                <ListVeiwProduct {...this.state}/>
-                <ListVeiwProduct {...this.state}/>
-                <ListVeiwProduct {...this.state}/>
-                <ListVeiwProduct {...this.state}/>
-                <ListVeiwProduct {...this.state}/>
-                <ListVeiwProduct {...this.state}/>
-                
+               {Listitems}
             </div>
          );
     }

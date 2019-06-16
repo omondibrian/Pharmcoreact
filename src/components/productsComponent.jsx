@@ -6,11 +6,8 @@ import BlockVeiwProducts from './BlockviewProducts';
 
 class CurrentProducts extends Component {
     state = { 
-        productimage:this.props.productimage,
-        title:this.props.title,
-        description:this.props.description,
-        price:this.props.price,
-        layoutblock:true
+       products:this.props.products,
+       layoutblock:true
     }
 
     toggleLayout=()=>{
@@ -20,14 +17,12 @@ class CurrentProducts extends Component {
     }
 
     render() { 
+       
         return ( 
 <div>
    <div className="span9">
-        <ul className="breadcrumb">
-            <li><a href="index.html">Home</a> <span className="divider">/</span></li>
-            <li className="active">Products Name</li>
-        </ul>
-        <h3> Products Name <small className="pull-right"> 40 products are available </small></h3>	
+        
+        <h3> Products Name <small className="pull-right"> {this.state.products.length} products are available </small></h3>	
         <hr className="soft" />
         <Sort />
         <div  className="pull-right">
@@ -41,7 +36,7 @@ class CurrentProducts extends Component {
       }
       <hr className="soft" />
   </div>
-  <a href="compair.html" className="btn btn-large pull-right">Compair Product</a>
+  <a href="/compaireproducts" className="btn btn-large pull-right">Compair Product</a>
   <div className="pagination">
     <ul>
       <li><a href="#">‹</a></li>

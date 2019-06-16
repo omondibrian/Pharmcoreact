@@ -1,0 +1,20 @@
+{
+    "faq":[
+        {
+            "id":1,
+            "quiz":"what do you do here",
+            "answer":"we are a hypothetical ecommerce company dedicated to serving you guys"
+        },
+        {
+            "id":2,
+            "quiz":"who made this site",
+            "answer":"the site was made by brian a computer science student egerton university"
+        },
+        {
+            "id":3,
+            "quiz":"is this site active",
+            "answer":"no this site is for practise"
+        }
+    ]
+    
+}

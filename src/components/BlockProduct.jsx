@@ -18,7 +18,7 @@ class BlockProduct extends Component {
             {this.state.description}
             </p>
             <h4 style={{textAlign: 'center'}}><a className="btn"
-             href="product_details.html"> <i className="icon-zoom-in" /></a> <a className="btn" href="#">Add to <i className="icon-shopping-cart" /></a> <a className="btn btn-primary"
+             href="/productdetails"> <i className="icon-zoom-in" /></a> <a className="btn" href="#">Add to <i className="icon-shopping-cart" /></a> <a className="btn btn-primary"
              href="#">€{this.state.price}</a></h4>
           </div>
         </div>

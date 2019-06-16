@@ -11,14 +11,14 @@ class Index extends Component {
         <div>
              <Header />
             <div id="mainBody">
-            <div className="container">
-            <div className="row">
-            <Carossel />
-            <Contents />
+                <div className="container">
+                    <div className="row">
+                        <Carossel />
+                        <Contents />
+                    </div>
+                </div>
             </div>
-            </div>
-            </div>
-            <Footer />
+              <Footer />
          </div> );
     }
 }

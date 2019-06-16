@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Sidebar from '../components/sidebar';
 import Header from '../components/header';
-
+import Products from '../pages/jsonstorage/products.json';
 class RegistrationForm extends Component {
     state = { title:null,
               firstname:null,
@@ -46,11 +46,11 @@ class RegistrationForm extends Component {
   <div name="mainBody">
     <div classname="container">
       <div classname="row">
-          <Sidebar />
+          <Sidebar {...Products} />
          <div className="span9">
 
         <ul className="breadcrumb">
-          <li><a href="index.html">Home</a> <span className="divider">/</span></li>
+          <li><a href="/">Home</a> <span className="divider">/</span></li>
           <li className="active">Registration</li>
         </ul>
         <h3> Registration</h3>	

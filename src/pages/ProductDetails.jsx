@@ -3,6 +3,8 @@ import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import Footer from '../components/footer';
 import CurrentProducts from '../components/productsComponent';
+import Products from '../pages/jsonstorage/products.json';
+
 class ProductsDetails extends Component {
     state = {
         
@@ -28,7 +30,7 @@ class ProductsDetails extends Component {
             <div id="mainBody">
                 <div className="container">
                       <div className="row">
-                      <Sidebar />
+                      <Sidebar {...Products} />
         <div className="span9">
   <ul className="breadcrumb">
     <li><a href="/">Home</a> <span className="divider">/</span></li>
@@ -98,7 +100,6 @@ class ProductsDetails extends Component {
       <p>{description}</p>
       <a className="btn btn-small pull-right" href="#detail">More Details</a>
       <br className="clr" />
-      <a href="#" name="detail" />
       <hr className="soft" />
     </div>
     <div className="span9">
@@ -121,7 +122,7 @@ class ProductsDetails extends Component {
           </table>
         </div>
             <div class="tab-pane fade" id="profile">
-            <CurrentProducts {...this.state} />
+            <CurrentProducts {...Products} />
         </div>
       </div>
       </div>
