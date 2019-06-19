@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import LoginForm from './login';
+import{Link} from 'react-router-dom';
 class Navbar extends Component {
-    state = {  }
+    
     render() { 
         return ( 
         <div id="logoArea" className="navbar">
-  <a id="smallScreen" data-target="#topMenu" data-toggle="collapse" className="btn btn-navbar">
+ <Link to="/" id="smallScreen" data-target="#topMenu" data-toggle="collapse" className="btn btn-navbar">
     <span className="icon-bar" />
     <span className="icon-bar" />
     <span className="icon-bar" />
-  </a>
+  </Link>
   <div className="navbar-inner">
-    <a className="brand" href="/">PHARMCO</a>
+   <Link className="brand" to="/">PHARMCO</Link>
     <form className="form-inline navbar-search" method="post" action="products.html">
       <input id="srchFld" className="srchTxt" type="text" />
       <select className="srchTxt">
@@ -25,10 +26,10 @@ class Navbar extends Component {
       <button type="submit" id="submitButton" className="btn btn-primary">Go</button>
     </form>
     <ul id="topMenu" className="nav pull-right">
-      <li className><a href="/specialoffer">Specials Offer</a></li>
-      <li className><a href="/contact">Contact</a></li>
-      <li className>
-        <a href="#login" role="button" data-toggle="modal" style={{paddingRight: 0}}><span className="btn btn-large btn-success">Login</span></a>
+      <li ><Link to="/specialoffer">Specials Offer</Link></li>
+      <li ><Link to="/contact">Contact</Link></li>
+      <li >
+       <Link to="#login" role="button" data-toggle="modal" style={{paddingRight: 0}}><span className="btn btn-large btn-success">Login</span></Link>
         <div id="login" className="modal hide fade in" tabIndex={-1} role="dialog" aria-labelledby="login" aria-hidden="false">
           <div className="modal-header">
             <button type="button" className="close" data-dismiss="modal" aria-hidden="true">×</button>

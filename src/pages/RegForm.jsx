@@ -20,11 +20,7 @@ class RegistrationForm extends Component {
               homepage:null,
               mobilephone:null,
     }
-    ReturnNumberOfDaysOfTheMonth(){
-        for(let i=0;i<=31;++i){
-           let Days= <option value={i}>i&nbsp;&nbsp;</option>
-        }
-    }
+   
     Onclick=(e)=>{
       console.log(e.target.name+" "+e.target.value);
       const {name,value} = e.target;
@@ -95,7 +91,7 @@ class RegistrationForm extends Component {
             <div className="control-group">
               <label className="control-label" >Date of Birth <sup>*</sup></label>
               <div className="controls">
-                <select className="span1" name="dateofbirth" name="days">
+                <select className="span1" name="dateofbirth">
                   <option value>-</option>
                   
                   <option value={1}>1&nbsp;&nbsp;</option>
@@ -181,7 +177,7 @@ class RegistrationForm extends Component {
             <div className="control-group">
               <label className="control-label" htmlFor="aditionalInfo">Additional information</label>
               <div className="controls">
-                <textarea name="aditionalInfo" name="aditionalInfo" cols={26} rows={3} defaultValue={"Additional information"} />
+                <textarea  name="aditionalInfo" cols={26} rows={3} defaultValue={"Additional information"} />
               </div>
             </div>
             <div className="control-group">

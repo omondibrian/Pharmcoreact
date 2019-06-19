@@ -3,7 +3,8 @@ import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import Footer from '../components/footer';
 import CurrentProducts from '../components/productsComponent';
-import Products from '../pages/jsonstorage/products.json';
+import {connect} from 'react-redux';
+import { fetchProducts} from '../redux/actions/productsaction'
 
 class ProductsDetails extends Component {
     state = {
@@ -21,6 +22,9 @@ class ProductsDetails extends Component {
          detaileddescription:{brand:'Fujifilm',Model:'FinePix S2950HD',Releasedon:"2011-01-28",
          Dimensions:'"5.50" h x 5.50" w x 2.00" l70 pounds',Displaysize:"3"}
           }
+          componentWillMount(){
+            this.props.fetchProducts();
+          }
     render() { 
         const {frontview,leftview,rightview,rareview,price,description,qty,title} =this.state;
         const{brand,Model,Releasedon,Dimensions,Displaysize}=this.state.detaileddescription
@@ -30,7 +34,7 @@ class ProductsDetails extends Component {
             <div id="mainBody">
                 <div className="container">
                       <div className="row">
-                      <Sidebar {...Products} />
+                      <Sidebar {...this.props} />
         <div className="span9">
   <ul className="breadcrumb">
     <li><a href="/">Home</a> <span className="divider">/</span></li>
@@ -122,7 +126,7 @@ class ProductsDetails extends Component {
           </table>
         </div>
             <div class="tab-pane fade" id="profile">
-            <CurrentProducts {...Products} />
+            <CurrentProducts {...this.props} />
         </div>
       </div>
       </div>
@@ -137,5 +141,10 @@ class ProductsDetails extends Component {
          );
     }
 }
- 
-export default ProductsDetails;
+const mapStateToProps = (state) =>({
+  products:state.products.products,
+  electronics:state.products.electronics,
+  healthbeuty:state.products.healthbeuty
+}
+)
+export default connect(mapStateToProps,{fetchProducts}) (ProductsDetails);

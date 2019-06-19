@@ -13,9 +13,10 @@ import Compaireproducts from './pages/CompairProducts';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
 
+
 function App() {
   return (
-  
+ 
  <Router>
  <Route exact path='/' component={Index} />
  <Route path='/login' component={Login} />
@@ -29,6 +30,7 @@ function App() {
  <Route path='/contact' component={Contact} />
  <Route path='/faq' component={FAQ} />
 </Router>
+  
  
  
   );

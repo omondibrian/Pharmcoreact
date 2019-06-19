@@ -4,7 +4,8 @@ class LatestProducts extends Component {
     state = { Productslist:this.props.products }
     render() { 
         const {Productslist} = this.state;
-        const latest = Productslist.map( product => <Products {...product} />)
+        console.log(Productslist)
+        const latest = Productslist.map( product => <Products key={product.id} {...product} />)
         return ( 
             <div>
                 <h4>Latest Products </h4>

@@ -18,7 +18,7 @@ class Compaireproduct extends Component {
             <p className="justify">
 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, quae?
             </p>
-            <img src="themes/images/products/1.jpg" alt />
+            <img src="themes/images/products/1.jpg" alt={Math.random()} />
             <form className="form-horizontal qtyFrm">
             <h3> $222.00</h3><br />
             <a href="product_details.html" className="btn btn-large btn-primary"> Add to <i className=" icon-shopping-cart" /></a>
@@ -29,7 +29,7 @@ Lorem ipsum dolor sit, amet consectetur adipisicing elit. Praesentium, quae?
             <p className="justify">
            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et aliquam voluptate quasi saepe itaque voluptas.
             </p>
-            <img src="themes/images/products/3.jpg" alt />
+            <img src="themes/images/products/3.jpg" alt={Math.random()} />
             <form className="form-horizontal qtyFrm">
             <h3> $190.00</h3>
             <br />

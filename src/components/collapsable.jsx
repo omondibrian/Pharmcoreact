@@ -6,8 +6,7 @@ class Collapsable extends Component {
 
 }
     render() { 
-        const ref= '#'+ this.state.answer;
-        const re = this.state.answer;
+   
         const {id}=this.state;
             return (
                  <div>

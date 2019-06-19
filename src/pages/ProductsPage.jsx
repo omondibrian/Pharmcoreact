@@ -3,45 +3,25 @@ import React, { Component } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Sidebar from '../components/sidebar';
-import CurrentProducts from '../components/productsComponent';
-import Products from '../pages/jsonstorage/products.json';
+// import CurrentProducts from '../components/productsComponent';
+import {connect} from 'react-redux';
+import { fetchProducts} from '../redux/actions/productsaction'
+
 class ProductsPage extends Component {
-    state = { 
-       products:null,
-       cart:[
-        {   
-            id:1,
-            productimage:"themes/images/products/3.jpg",
-            title:" techno",
-            description:"  I'm a paragraph. Click here ",
-            price:222.00,
-            qtyinstock:100,
-            discount:25,
-             tax:15,
-             category:"electronics",
-             subcategory:"mobile phone",
-             unit:1
-        }
-       ]
-    }
     componentWillMount(){
-        
-        this.setState({
-            products:Products.products,
-            electronics:Products.electronics,
-            healthbeuty:Products.healthbeuty
-        })
+        this.props.fetchProducts();
     }
     render() { 
-        console.log(this.state);
+        console.log("products component",this.props)
+       
         return ( 
         <div>
           <Header />
             <div id="mainBody">
                 <div className="container">
                     <div className="row">
-                    <Sidebar {...this.state} />
-                    <CurrentProducts {...this.state} />
+                    <Sidebar {...this.props} />
+                    {/* <CurrentProducts {...this.props} /> */}
                     </div>
                 </div>
             </div>
@@ -50,5 +30,12 @@ class ProductsPage extends Component {
         );
     }
 }
+const mapStateToProps = (state) =>({
+    products:state.pharmco.products,
+    electronics:state.pharmco.electronics,
+    healthbeuty:state.pharmco.healthbeuty
+  }
+  )
+
  
-export default ProductsPage;
+export default connect(mapStateToProps,{ fetchProducts})( ProductsPage);

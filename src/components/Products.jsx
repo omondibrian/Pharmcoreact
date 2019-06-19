@@ -11,7 +11,7 @@ class Product extends Component {
 <li className="span3">
   <div className="thumbnail">
     <i className="tag" />
-    <a href="/productsdetails"><img src={this.state.productimage} alt /></a>
+    <a href="/productsdetails"><img src={this.state.productimage} alt={this.state.title} /></a>
     <div className="caption">
       <h5>{this.state.title}</h5>
       <h4><a className="btn" href="/productsdetails">VIEW</a>

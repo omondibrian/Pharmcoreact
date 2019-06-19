@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import{Link} from 'react-router-dom';
 class BlockProduct extends Component {
     state = { 
         productimage:this.props.productimage,
@@ -11,15 +12,15 @@ class BlockProduct extends Component {
         return (   
      <li className="span3">
         <div className="thumbnail">
-          <a href="product_details.html"><img src={this.state.productimage} alt='image' /></a>
+         <Link to="/productsdetails"><img src={this.state.productimage} alt={this.state.title}/></Link>
           <div className="caption">
             <h5>{this.state.title}</h5>
             <p> 
             {this.state.description}
             </p>
-            <h4 style={{textAlign: 'center'}}><a className="btn"
-             href="/productdetails"> <i className="icon-zoom-in" /></a> <a className="btn" href="#">Add to <i className="icon-shopping-cart" /></a> <a className="btn btn-primary"
-             href="#">€{this.state.price}</a></h4>
+            <h4 style={{textAlign: 'center'}}><Link className="btn"
+             to="/productdetails"> <i className="icon-zoom-in" /></Link><Link className="btn" to="#">Add to <i className="icon-shopping-cart" /></Link><Link className="btn btn-primary"
+             to="#">€{this.state.price}</Link></h4>
           </div>
         </div>
       </li> );

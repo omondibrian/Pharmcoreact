@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import{Link} from 'react-router-dom';
 class ListVeiwProduct extends Component {
   state = { 
     productimage:this.props.productimage,
@@ -6,15 +7,13 @@ class ListVeiwProduct extends Component {
     description:this.props.description,
     price:this.props.price
 }
-componentDidMount(){
-  console.log("listProduct mounted")
-}
+
 render() { 
         return (
   <div>
     <div className="row">	  
       <div className="span2">
-        <img src={this.state.productimage} alt='product' />
+        <img src={this.state.productimage} alt={this.state.title} />
       </div>
       <div className="span4">
           <h3>New | Available</h3>				
@@ -23,7 +22,7 @@ render() {
           <p>
             {this.state.description}
           </p>
-          <a className="btn btn-small pull-right" href="product_details.html">View Details</a>
+         <Link className="btn btn-small pull-right"to="/productsdetails">View Details</Link>
           <br className="clr" />
       </div>
       <div className="span3 alignR">
@@ -32,8 +31,8 @@ render() {
             <label className="checkbox">
               <input type="checkbox" />  Adds product to compair
             </label><br />
-            <a href="product_details.html" className="btn btn-large btn-primary"> Add to <i className=" icon-shopping-cart" /></a>
-            <a href="product_details.html" className="btn btn-large"><i className="icon-zoom-in" /></a>
+           <Link to="/productsdetails" className="btn btn-large btn-primary"> Add to <i className=" icon-shopping-cart" /></Link>
+           <Link to="/productsdetails" className="btn btn-large"><i className="icon-zoom-in" /></Link>
           </form>
         </div>
       </div>

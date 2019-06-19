@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Link} from "react-router-dom";
 class Footer extends Component {
   
     render() { 
@@ -10,27 +10,27 @@ class Footer extends Component {
     <div className="row">
       <div className="span3">
         <h5>ACCOUNT</h5>
-        <a href="/login">YOUR ACCOUNT</a>
-        <a href="login.html">PERSONAL INFORMATION</a>  
-        <a href="/products">ORDER HISTORY</a>
+        <Link to="/login">YOUR ACCOUNT</Link>
+        <Link to="login.html">PERSONAL INFORMATION</Link>  
+        <Link to="/products">ORDER HISTORY</Link>
       </div>
       <div className="span3">
         <h5>INFORMATION</h5>
-        <a href="/contact">CONTACT</a>  
-        <a href="/registration">REGISTRATION</a>  
-        <a href="/faq">FAQ</a>
+        <Link to="/contact">CONTACT</Link>  
+        <Link to="/registration">REGISTRATION</Link>  
+        <Link to="/faq">FAQ</Link>
       </div>
       <div className="span3">
         <h5>OUR OFFERS</h5>
-        <a href="/products">NEW PRODUCTS</a> 
-        <a href="/specialoffer">SPECIAL OFFERS</a>  
-        <a href="#">SUPPLIERS</a> 
+        <Link to="/products">NEW PRODUCTS</Link> 
+        <Link to="/specialoffer">SPECIAL OFFERS</Link>  
+        <Link to='/'>SUPPLIERS</Link> 
       </div>
       <div id="socialMedia" className="span3 pull-right">
         <h5>SOCIAL MEDIA </h5>
-        <a href="#"><img width={60} height={60} src="themes/images/facebook.png" title="facebook" alt="facebook" /></a>
-        <a href="#"><img width={60} height={60} src="themes/images/twitter.png" title="twitter" alt="twitter" /></a>
-        <a href="#"><img width={60} height={60} src="themes/images/youtube.png" title="youtube" alt="youtube" /></a>
+        <Link to='/' ><img width={60} height={60} src="themes/images/facebook.png" title="facebook" alt="facebook" /></Link>
+        <Link to='/'><img width={60} height={60} src="themes/images/twitter.png" title="twitter" alt="twitter" /></Link>
+        <Link to='/'><img width={60} height={60} src="themes/images/youtube.png" title="youtube" alt="youtube" /></Link>
       </div> 
     </div>
     <p className="pull-right">© Pharmco</p>

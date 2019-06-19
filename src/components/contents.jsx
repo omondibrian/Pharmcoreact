@@ -3,9 +3,12 @@ import FeaturedProducts from './featured';
 import Sidebar from '../components/sidebar';
 import LatestProducts from './latestProducts';
 import Products from '../pages/jsonstorage/products.json';
+import {connect} from 'react-redux';
+import { fetchProducts} from '../redux/actions/productsaction'
 class Contents extends Component {
     state = {  }
-    render() { 
+    render() {
+        console.log("content log are",this.props) 
         return ( 
             <div>
             <Sidebar {...Products} />
@@ -16,5 +19,14 @@ class Contents extends Component {
          );
     }
 }
- 
-export default Contents;
+const mapStateToProps = (state) =>({
+    products:state.products.products,
+    electronics:state.products.electronics,
+    healthbeuty:state.products.healthbeuty
+  }
+  )
+  const mapDispatchToProps = () =>({
+   fetchProducts
+  }
+  )
+export default connect(mapStateToProps,mapDispatchToProps) (Contents);

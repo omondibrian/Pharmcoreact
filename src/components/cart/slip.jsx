@@ -17,7 +17,7 @@ class Slip extends Component {
   </thead>
   <tbody>
     <tr>
-      <td> <img width={60} src="themes/images/products/4.jpg" alt /></td>
+      <td> <img width={60} src="themes/images/products/4.jpg" alt={Math.random()} /></td>
       <td>MASSA AST<br />Color : black, Material : metal</td>
       <td>
         <div className="input-append"><input className="span1" style={{maxWidth: 34}} placeholder={1} id="appendedInputButtons" size={16} type="text" /><button className="btn" type="button"><i className="icon-minus" /></button><button className="btn" type="button"><i className="icon-plus" /></button><button className="btn btn-danger" type="button"><i className="icon-remove icon-white" /></button>				</div>
@@ -28,7 +28,7 @@ class Slip extends Component {
       <td>$110.00</td>
     </tr>
     <tr>
-      <td> <img width={60} src="themes/images/products/8.jpg" alt /></td>
+      <td> <img width={60} src="themes/images/products/8.jpg" alt={Math.random()} /></td>
       <td>MASSA AST<br />Color : black, Material : metal</td>
       <td>
         <div className="input-append"><input className="span1" style={{maxWidth: 34}} placeholder={1} size={16} type="text" /><button className="btn" type="button"><i className="icon-minus" /></button><button className="btn" type="button"><i className="icon-plus" /></button><button className="btn btn-danger" type="button"><i className="icon-remove icon-white" /></button>				</div>
@@ -39,7 +39,7 @@ class Slip extends Component {
       <td>$8.00</td>
     </tr>
     <tr>
-      <td> <img width={60} src="themes/images/products/3.jpg" alt /></td>
+      <td> <img width={60} src="themes/images/products/3.jpg"alt={Math.random()} /></td>
       <td>MASSA AST<br />Color : black, Material : metal</td>
       <td>
         <div className="input-append"><input className="span1" style={{maxWidth: 34}} placeholder={1} size={16} type="text" /><button className="btn" type="button"><i className="icon-minus" /></button><button className="btn" type="button"><i className="icon-plus" /></button><button className="btn btn-danger" type="button"><i className="icon-remove icon-white" /></button>				</div>

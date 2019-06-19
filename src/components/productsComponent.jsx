@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {NavLink,Link} from 'react-router-dom'
 import Sort from './sort';
 import ListVeiw from './listview';
 import BlockVeiwProducts from './BlockviewProducts';
@@ -36,16 +36,16 @@ class CurrentProducts extends Component {
       }
       <hr className="soft" />
   </div>
-  <a href="/compaireproducts" className="btn btn-large pull-right">Compair Product</a>
+ <Link to="/compaireproducts" className="btn btn-large pull-right">Compair Product</Link>
   <div className="pagination">
     <ul>
-      <li><a href="#">‹</a></li>
-      <li><a href="#">1</a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">...</a></li>
-      <li><a href="#">›</a></li>
+      <li><NavLink to="#">‹</NavLink></li>
+      <li><NavLink to="#">1</NavLink></li>
+      <li><NavLink to="#">2</NavLink></li>
+      <li><NavLink to="#">3</NavLink></li>
+      <li><NavLink to="#">4</NavLink></li>
+      <li><NavLink to="#">...</NavLink></li>
+      <li><NavLink to="#">›</NavLink></li>
     </ul>
   </div>
   <br className="clr" />
