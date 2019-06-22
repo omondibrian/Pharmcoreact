@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Products from './Products';
 class LatestProducts extends Component {
-    state = { Productslist:this.props.products }
+    
     render() { 
-        const {Productslist} = this.state;
-        console.log(Productslist)
-        const latest = Productslist.map( product => <Products key={product.id} {...product} />)
+        
+        const latest = this.props.products.map( product => <Products key={product.id} {...product} />)
         return ( 
-            <div>
+            <div className='span9'>
                 <h4>Latest Products </h4>
-                <ul class="thumbnails">
+                <ul className="thumbnails">
                     {latest}
                 </ul>	
             </div>

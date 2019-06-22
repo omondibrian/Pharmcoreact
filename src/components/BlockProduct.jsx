@@ -5,7 +5,10 @@ class BlockProduct extends Component {
         productimage:this.props.productimage,
         title:this.props.title,
         description:this.props.description,
-        price:this.props.price
+        price:this.props.price,
+        discount:this.props.discount,
+        tax:this.props.tax,
+        id:this.props.id
     }
     render() { 
        
@@ -19,8 +22,8 @@ class BlockProduct extends Component {
             {this.state.description}
             </p>
             <h4 style={{textAlign: 'center'}}><Link className="btn"
-             to="/productdetails"> <i className="icon-zoom-in" /></Link><Link className="btn" to="#">Add to <i className="icon-shopping-cart" /></Link><Link className="btn btn-primary"
-             to="#">€{this.state.price}</Link></h4>
+             to="/productdetails"> <i className="icon-zoom-in" /></Link><button className="btn" onClick={()=>this.props.addToCart(this.state)} >Add to <i className="icon-shopping-cart" /></button><button className="btn btn-primary"
+             >€{this.state.price}</button></h4>
           </div>
         </div>
       </li> );

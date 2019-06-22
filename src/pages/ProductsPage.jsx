@@ -3,16 +3,18 @@ import React, { Component } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Sidebar from '../components/sidebar';
-// import CurrentProducts from '../components/productsComponent';
-import {connect} from 'react-redux';
-import { fetchProducts} from '../redux/actions/productsaction'
+import CurrentProducts from '../components/productsComponent';
+
+//redux connection
+import {connect} from 'react-redux'
+import {  fetchProducts ,addToCart  } from '../redux/actions/productsaction'
 
 class ProductsPage extends Component {
-    componentWillMount(){
-        this.props.fetchProducts();
-    }
+  
+  componentWillMount(){
+    this.props.fetchProducts();
+ }
     render() { 
-        console.log("products component",this.props)
        
         return ( 
         <div>
@@ -21,7 +23,7 @@ class ProductsPage extends Component {
                 <div className="container">
                     <div className="row">
                     <Sidebar {...this.props} />
-                    {/* <CurrentProducts {...this.props} /> */}
+                    <CurrentProducts />
                     </div>
                 </div>
             </div>
@@ -30,12 +32,12 @@ class ProductsPage extends Component {
         );
     }
 }
-const mapStateToProps = (state) =>({
-    products:state.pharmco.products,
-    electronics:state.pharmco.electronics,
-    healthbeuty:state.pharmco.healthbeuty
-  }
-  )
 
- 
-export default connect(mapStateToProps,{ fetchProducts})( ProductsPage);
+//all the required props are maped from the current state of the store
+const MapStateToProps = (state) =>({
+  products:state.products.products,
+  electronics:state.products.electronics,
+   healthbeuty:state.products.healthbeuty,
+   cart:state.products.cart
+})
+export default connect(MapStateToProps,{fetchProducts,addToCart})( ProductsPage);

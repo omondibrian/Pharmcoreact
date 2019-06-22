@@ -4,8 +4,16 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Carossel from '../components/carossel';
 import Contents from '../components/contents';
+
+//redux connection
+import {connect} from 'react-redux'
+import {  fetchProducts  } from '../redux/actions/productsaction'
+
 class Index extends Component {
-    state = {  }
+    componentWillMount(){
+        this.props.fetchProducts();
+     }
+   
     render() { 
         return ( 
         <div>
@@ -14,7 +22,7 @@ class Index extends Component {
                 <div className="container">
                     <div className="row">
                         <Carossel />
-                        <Contents />
+                        <Contents {...this.props} />
                     </div>
                 </div>
             </div>
@@ -23,4 +31,11 @@ class Index extends Component {
     }
 }
  
-export default Index;
+
+//all the required props are maped from the current state of the store
+const MapStateToProps = (state) =>({
+    products:state.products.products,
+    electronics:state.products.electronics,
+     healthbeuty:state.products.healthbeuty
+})
+export default connect(MapStateToProps,{fetchProducts})(Index);

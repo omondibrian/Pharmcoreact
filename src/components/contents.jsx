@@ -2,31 +2,30 @@ import React, { Component } from 'react';
 import FeaturedProducts from './featured';
 import Sidebar from '../components/sidebar';
 import LatestProducts from './latestProducts';
-import Products from '../pages/jsonstorage/products.json';
-import {connect} from 'react-redux';
-import { fetchProducts} from '../redux/actions/productsaction'
+//redux connection
+import {connect} from 'react-redux'
+import {  fetchProducts   } from '../redux/actions/productsaction'
 class Contents extends Component {
-    state = {  }
+    componentWillMount(){
+        this.props.fetchProducts();
+     }
     render() {
-        console.log("content log are",this.props) 
         return ( 
             <div>
-            <Sidebar {...Products} />
-            <FeaturedProducts {...Products} />
-            <LatestProducts {...Products}  />
+            <Sidebar {...this.props} />
+            <FeaturedProducts {...this.props} />
+            <LatestProducts {...this.props}  />
             </div>
     
          );
     }
 }
-const mapStateToProps = (state) =>({
+
+//all the required props are maped from the current state of the store
+const MapStateToProps = (state) =>({
     products:state.products.products,
     electronics:state.products.electronics,
-    healthbeuty:state.products.healthbeuty
-  }
-  )
-  const mapDispatchToProps = () =>({
-   fetchProducts
-  }
-  )
-export default connect(mapStateToProps,mapDispatchToProps) (Contents);
+     healthbeuty:state.products.healthbeuty,
+     cart:state.products.cart
+  })
+  export default connect(MapStateToProps,{fetchProducts,})(Contents);

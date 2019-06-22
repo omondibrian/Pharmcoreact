@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import Header from '../components/header';
 import Footer from '../components/footer';
 import Sidebar from '../components/sidebar';
-import Products from '../pages/jsonstorage/products.json';
+
 import CurrentProducts from '../components/productsComponent';
+
+//redux connection
+import {connect} from 'react-redux'
+import {  fetchProducts} from '../redux/actions/productsaction'
+
 class Specialoffer extends Component {
-    state = { productlist:Products.products }
-    
-    
-  
+    state = { productlist:this.props.products }
+    componentWillMount(){
+        this.props.fetchProducts();
+     }
     render() { 
         const DiscountedProducts = this.state.productlist.filter(
             product =>product.discount >=200)
@@ -18,7 +23,7 @@ class Specialoffer extends Component {
                 <div id="mainBody">
                     <div className="container">
                         <div className="row">
-                            <Sidebar {...Products} />
+                        <Sidebar {...this.props} />
                             <div className="span9">
                                 <ul className="breadcrumb">
                                     <li><a href="index.html">Home</a> <span className="divider">/</span></li>
@@ -38,4 +43,11 @@ class Specialoffer extends Component {
     }
 }
  
-export default Specialoffer;
+//all the required props are maped from the current state of the store
+const MapStateToProps = (state) =>({
+    products:state.products.products,
+    electronics:state.products.electronics,
+    healthbeuty:state.products.healthbeuty,
+    cart:state.products.cart
+  })
+  export default connect(MapStateToProps,{ fetchProducts}) (Specialoffer);

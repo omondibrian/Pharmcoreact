@@ -5,7 +5,10 @@ class ListVeiwProduct extends Component {
     productimage:this.props.productimage,
     title:this.props.title,
     description:this.props.description,
-    price:this.props.price
+    price:this.props.price,
+    discount:this.props.discount,
+    tax:this.props.tax,
+    id:this.props.id
 }
 
 render() { 
@@ -31,9 +34,8 @@ render() {
             <label className="checkbox">
               <input type="checkbox" />  Adds product to compair
             </label><br />
-           <Link to="/productsdetails" className="btn btn-large btn-primary"> Add to <i className=" icon-shopping-cart" /></Link>
-           <Link to="/productsdetails" className="btn btn-large"><i className="icon-zoom-in" /></Link>
           </form>
+           <button onClick={()=>this.props.addtocart(this.state)} className="btn btn-large btn-primary"> Add to cart <i className=" icon-shopping-cart" /></button>
         </div>
       </div>
       <hr className="soft" />

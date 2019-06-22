@@ -114,10 +114,13 @@
         ,
     
     "electronics":[
-        {"camera":3},{"mobilephone":1},{"soundvision":3},{"tablets":1}
+        {"name":"camera","qty":3},
+        {"name":"mobilephone","qty":1},
+        {"name": "soundvision","qty":3},
+        {"name":"tablets","qty":1}
     ],
     "healthbeuty":[
-    {"shoes":3}
+    {"name":"shoes","qty":3}
     ]
              
 }

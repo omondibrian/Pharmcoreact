@@ -12,11 +12,12 @@ import SpecialOffer from './pages/specialOffer';
 import Compaireproducts from './pages/CompairProducts';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
-
+import {Provider} from 'react-redux'
+import store from './redux/store'
 
 function App() {
   return (
- 
+<Provider store={store}>
  <Router>
  <Route exact path='/' component={Index} />
  <Route path='/login' component={Login} />
@@ -30,6 +31,7 @@ function App() {
  <Route path='/contact' component={Contact} />
  <Route path='/faq' component={FAQ} />
 </Router>
+</Provider>
   
  
  

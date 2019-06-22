@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 import BlockProduct from './BlockProduct';
 class BlockVeiwProducts extends Component {
-    state = { 
-        products:this.props.products
-     }
     
   
     render() { 
-        const {products}=this.state;
-        const blockitems= products.map(product => <BlockProduct {...product} />)
+        
+        const blockitems=this.props.products.map(product => <BlockProduct key={product.id} {...product} {...this.props} />)
          return ( 
             <div className="tab-pane  active" id="blockView">
                 <ul className="thumbnails">

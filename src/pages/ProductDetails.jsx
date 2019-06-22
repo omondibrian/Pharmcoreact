@@ -3,8 +3,11 @@ import Header from '../components/header';
 import Sidebar from '../components/sidebar';
 import Footer from '../components/footer';
 import CurrentProducts from '../components/productsComponent';
-import {connect} from 'react-redux';
-import { fetchProducts} from '../redux/actions/productsaction'
+import {Link} from 'react-router-dom';
+ 
+//redux connection
+import {connect} from 'react-redux'
+import {  fetchProducts ,addToCart  } from '../redux/actions/productsaction'
 
 class ProductsDetails extends Component {
     state = {
@@ -22,9 +25,12 @@ class ProductsDetails extends Component {
          detaileddescription:{brand:'Fujifilm',Model:'FinePix S2950HD',Releasedon:"2011-01-28",
          Dimensions:'"5.50" h x 5.50" w x 2.00" l70 pounds',Displaysize:"3"}
           }
-          componentWillMount(){
-            this.props.fetchProducts();
+          handlesubmit = (e) =>{
+            e.preventDefault();
+            addToCart(this.state);
+            console.log(this.props)
           }
+      
     render() { 
         const {frontview,leftview,rightview,rareview,price,description,qty,title} =this.state;
         const{brand,Model,Releasedon,Dimensions,Displaysize}=this.state.detaileddescription
@@ -37,27 +43,27 @@ class ProductsDetails extends Component {
                       <Sidebar {...this.props} />
         <div className="span9">
   <ul className="breadcrumb">
-    <li><a href="/">Home</a> <span className="divider">/</span></li>
-    <li><a href="/products">Products</a> <span className="divider">/</span></li>
+    <li><Link to="/">Home</Link> <span className="divider">/</span></li>
+    <li><Link to="/products">Products</Link> <span className="divider">/</span></li>
     <li className="active">product Details</li>
   </ul>	
   <div className="row">	  
     <div id="gallery" className="span3">
-      <a href={frontview} title={title}>
+      <Link to={frontview} title={title}>
         <img src={frontview} style={{width: '100%'}} alt={title} />
-      </a>
+      </Link>
       <div id="differentview" className="moreOptopm carousel slide">
         <div className="carousel-inner">
           <div className="item active">
-            <a href={frontview}> <img style={{width: '29%'}} src={frontview} alt={title} /></a>
-        <a href={rightview}> <img style={{width: '29%'}} src={rightview} alt={title} /></a>
-            <a href={rareview}> <img style={{width: '29%'}} src={rareview} alt={title} /></a>
+            <Link to={frontview}> <img style={{width: '29%'}} src={frontview} alt={title} /></Link>
+        <Link to={rightview}> <img style={{width: '29%'}} src={rightview} alt={title} /></Link>
+            <Link to={rareview}> <img style={{width: '29%'}} src={rareview} alt={title} /></Link>
           </div>
           <div className="item">
-           {rareview?<a href={rareview}> <img style={{width: '29%'}} src={rareview}alt={title}  /></a>:null} 
-            {frontview?<a href={frontview}> <img style={{width: '29%'}} src={frontview} alt={title}  /></a>:null}
-            {rightview?<a href={rightview}> <img style={{width: '29%'}} src={rightview} alt={title}  /></a>:null}
-           {leftview? <a href={leftview}> <img style={{width: '29%'}} src={leftview} alt={title}  /></a>:null}
+           {rareview?<Link to={rareview}> <img style={{width: '29%'}} src={rareview}alt={title}  /></Link>:null} 
+            {frontview?<Link to={frontview}> <img style={{width: '29%'}} src={frontview} alt={title}  /></Link>:null}
+            {rightview?<Link to={rightview}> <img style={{width: '29%'}} src={rightview} alt={title}  /></Link>:null}
+           {leftview? <Link to={leftview}> <img style={{width: '29%'}} src={leftview} alt={title}  /></Link>:null}
           </div>
         </div>
       </div>
@@ -76,12 +82,12 @@ class ProductsDetails extends Component {
       <h3>{title}</h3>
       <small>- (14MP, 18x Optical Zoom) 3-inch LCD</small>
       <hr className="soft" />
-      <form className="form-horizontal qtyFrm">
+      <form className="form-horizontal qtyFrm" onSubmit={this.handlesubmit}>
         <div className="control-group">
           <label className="control-label"><span>${price}</span></label>
           <div className="controls">
             <input type="number" className="span1" placeholder="Qty." />
-            <button type="submit" className="btn btn-large btn-primary pull-right"> Add to cart <i className=" icon-shopping-cart" /></button>
+            <button  className="btn btn-large btn-primary pull-right"> Add to cart <i className=" icon-shopping-cart" /></button>
           </div>
         </div>
       </form>
@@ -102,14 +108,14 @@ class ProductsDetails extends Component {
       </form>
       <hr className="soft clr" />
       <p>{description}</p>
-      <a className="btn btn-small pull-right" href="#detail">More Details</a>
+      <Link to="#detail" className="btn btn-small pull-right" >More Details</Link>
       <br className="clr" />
       <hr className="soft" />
     </div>
     <div className="span9">
       <ul id="productDetail" className="nav nav-tabs">
-        <li className="active"><a href="#home" data-toggle="tab">Product Details</a></li>
-        <li><a href="#profile" data-toggle="tab">Related Products</a></li>
+        <li className="active"><Link to="#home" data-toggle="tab">Product Details</Link></li>
+        <li><Link to="#profile" data-toggle="tab">Related Products</Link></li>
       </ul>
       <div id="myTabContent" className="tab-content">
         <div className="tab-pane fade active in" id="home">
@@ -125,7 +131,7 @@ class ProductsDetails extends Component {
             </tbody>
           </table>
         </div>
-            <div class="tab-pane fade" id="profile">
+            <div className="tab-pane fade" id="profile">
             <CurrentProducts {...this.props} />
         </div>
       </div>
@@ -141,10 +147,13 @@ class ProductsDetails extends Component {
          );
     }
 }
-const mapStateToProps = (state) =>({
+
+
+//all the required props are maped from the current state of the store
+const MapStateToProps = (state) =>({
   products:state.products.products,
   electronics:state.products.electronics,
-  healthbeuty:state.products.healthbeuty
-}
-)
-export default connect(mapStateToProps,{fetchProducts}) (ProductsDetails);
+   healthbeuty:state.products.healthbeuty,
+   cart:state.products.cart
+})
+export default connect(MapStateToProps,{fetchProducts,addToCart})(ProductsDetails);

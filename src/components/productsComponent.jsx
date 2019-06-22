@@ -4,12 +4,18 @@ import Sort from './sort';
 import ListVeiw from './listview';
 import BlockVeiwProducts from './BlockviewProducts';
 
+import {connect} from 'react-redux'
+import {  fetchProducts ,addToCart  } from '../redux/actions/productsaction'
+
 class CurrentProducts extends Component {
     state = { 
-       products:this.props.products,
+       
        layoutblock:true
     }
-
+    componentWillMount(){
+      this.props.fetchProducts();
+     
+   }
     toggleLayout=()=>{
         this.setState({
             layoutblock:!this.state.layoutblock
@@ -22,7 +28,7 @@ class CurrentProducts extends Component {
 <div>
    <div className="span9">
         
-        <h3> Products Name <small className="pull-right"> {this.state.products.length} products are available </small></h3>	
+        <h3> Products Name <small className="pull-right"> {this.props.products.length} products are available </small></h3>	
         <hr className="soft" />
         <Sort />
         <div  className="pull-right">
@@ -31,8 +37,8 @@ class CurrentProducts extends Component {
         <br className="clr" />
          <div className="tab-content">
       {
-          this.state.layoutblock? <ListVeiw {...this.state} />:
-            <BlockVeiwProducts {...this.state} />
+          this.state.layoutblock? <ListVeiw {...this.props} />:
+            <BlockVeiwProducts {...this.props} />
       }
       <hr className="soft" />
   </div>
@@ -55,5 +61,10 @@ class CurrentProducts extends Component {
         );
     }
 }
- 
-export default CurrentProducts;
+const MapStateToProps = (state) =>({
+  products:state.products.products,
+  electronics:state.products.electronics,
+   healthbeuty:state.products.healthbeuty,
+   cart:state.products.cart
+})
+export default connect(MapStateToProps,{fetchProducts,addToCart})( CurrentProducts);
