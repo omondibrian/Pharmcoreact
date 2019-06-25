@@ -6,7 +6,7 @@ class LatestProducts extends Component {
         
         const latest = this.props.products.map( product => <Products key={product.id} {...product} />)
         return ( 
-            <div className='span9'>
+            <div className='span9' data-test='latestproducts'>
                 <h4>Latest Products </h4>
                 <ul className="thumbnails">
                     {latest}

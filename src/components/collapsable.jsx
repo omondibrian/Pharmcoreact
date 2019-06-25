@@ -9,14 +9,14 @@ class Collapsable extends Component {
    
         const {id}=this.state;
             return (
-                 <div>
+                 <div data-test='wrapper'>
                     <div className="accordion-group">
                          <div className="accordion-heading">
-                             <h4><a className="accordion-toggle collapsed" data-toggle="collapse"  data-parent="#accordion2" href={'#'+id} >
+                             <h4><a className="accordion-toggle collapsed" data-toggle="collapse" data-test='quiz'  data-parent="#accordion2" href={'#'+id} >
                                 {this.state.quizname}
                              </a></h4>
                         </div>
-                        <div id={id} className="accordion-body collapse">
+                        <div id={id} data-test='answer' className="accordion-body collapse">
                             <div className="accordion-inner">
                                {this.state.answer} 
                              </div>

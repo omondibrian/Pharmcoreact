@@ -5,14 +5,14 @@ import Navbar from './navbar';
 
 class Header extends Component {
  state={
-   name:"Jawah"
+   name:"Nyangi aka slowly"
  }
     render() { 
         return (
-       <div id="header">
+ <div id="header" data-test='wrapper'>
   <div className="container">
     <div id="welcomeLine" className="row">
-      <div className="span6">Welcome!<strong>{this.state.name}</strong></div>
+      <div className="span6" data-test='username'>Welcome!<strong>{this.state.name}</strong></div>
       <div className="span6">
         <div className="pull-right">
        

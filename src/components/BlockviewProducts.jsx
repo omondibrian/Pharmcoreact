@@ -7,7 +7,7 @@ class BlockVeiwProducts extends Component {
         
         const blockitems=this.props.products.map(product => <BlockProduct key={product.id} {...product} {...this.props} />)
          return ( 
-            <div className="tab-pane  active" id="blockView">
+            <div className="tab-pane  active" data-test='wrapper' id="blockView">
                 <ul className="thumbnails">
                    {blockitems} 
                 </ul>
