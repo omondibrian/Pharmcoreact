@@ -1,6 +1,7 @@
 import React from 'react';
 const SlipContent = ({title,description,price,decreaseQuantityOfProduct,deleteProductFromCart,IncreamentProduct,id,qty,discount,tax,productimage}) => {
     const total= qty * ((price-discount) + tax);
+    console.log('slip content',deleteProductFromCart)
     return ( 
         <tr>
         <td> <img width={60} src={productimage} alt={Math.random()} /></td>

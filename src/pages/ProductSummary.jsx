@@ -7,7 +7,13 @@ import Slip from '../components/cart/slip';
 import Voucher from '../components/cart/voucher';
 import Shipping from '../components/cart/Shipping';
 import {Link} from 'react-router-dom'
-
+/**
+|-----------------------------------------------------
+| this is the products summary componet it is used to 
+| display it is used to display all the items to be 
+| ordered by the customer
+|-----------------------------------------------------
+*/
 //redux connection
 import {connect} from 'react-redux'
 import {  fetchProducts ,IncreamentProduct ,decreaseQuantityOfProduct ,
@@ -16,7 +22,7 @@ import {  fetchProducts ,IncreamentProduct ,decreaseQuantityOfProduct ,
 class ProductSummary extends Component {
 
     render() { 
-        
+        console.log('from the productssummary',this.props)
         return ( 
             <div>
                 <Header />

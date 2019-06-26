@@ -17,6 +17,7 @@ switch(action.type){
             electronics:action.electronics,
             healthbeuty:action.healthbeuty
         }
+        break
     case ADD_TO_CART:
             let existingProduct=state.cart.filter( product => product.id === action.product.id);
             if(existingProduct.length > 0){
@@ -43,16 +44,20 @@ switch(action.type){
                     cart:new_cart
                 }
             }
-       
+            break
     case INCREASE_QTY_OF_PRODUCT_IN_CART:
-             existingProduct=state.cart.filter( product => product.id === action.id);
-            if(existingProduct.length > 0){
+           let existingP =state.cart.filter( product => {
+                if(product.id == action.id){
+                    return true
+                }
+             });
+            if(existingP.length > 0){
                 const withoutExistingProduct = state.cart.filter(
                     product => product.id !== action.id
                 )
                 const updatedProduct ={
-                    ...existingProduct[0],
-                    qty:existingProduct[0].qty +1
+                    ...existingP[0],
+                    qty:existingP[0].qty +1
                 }
                 return{
                     ...state,
@@ -60,7 +65,7 @@ switch(action.type){
                 }
             }
         case DECREASE_QTY_OF_PRODUCT_IN_CART:
-                existingProduct=state.cart.filter( product => product.id === action.id);
+                 existingProduct=state.cart.filter( product => product.id === action.id);
                 if(existingProduct.length > 0){
                     const withoutExistingProduct = state.cart.filter(
                         product => product.id !== action.id
@@ -74,11 +79,10 @@ switch(action.type){
                         cart:[...withoutExistingProduct,updatedProduct]
                     }
                 }
+                break
         case DELETE_PRODUCT_IN_CART:
-            const updatedProductFromCart = state.cart.filter( product => product.id !== action.id);
-            return{
-                updatedProductFromCart
-            }
+           console.log(`delete this ${action.id}`)
+           break
         default:
             return state;
         }

@@ -3,7 +3,7 @@ import SlipContent from './slipContent';
 class Slip extends Component {
 
   render() { 
-
+      console.log('slip props',this.props)
       const productlist=this.props.cart.map( product =><SlipContent key={product.id}
          {...this.props} {...product} />)
       if(productlist.length) 
