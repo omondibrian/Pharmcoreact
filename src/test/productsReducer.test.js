@@ -70,7 +70,7 @@ describe('ProductsReducer',()=>{
         cart:[newProduct]     
     }
 
-    it('should increament a product qty when triggered',()=>{
+    it('should increament product count when triggered',()=>{
         const newstate = productsReducer(currentState,{
             type:INCREASE_QTY_OF_PRODUCT_IN_CART,
             id:1
@@ -83,5 +83,33 @@ describe('ProductsReducer',()=>{
             cart:[updatedproduct]
                   
         })
+    })
+    it('should decreament product count when action is triggered',()=>{
+        const newstate = productsReducer(currentState,{
+            type:DECREASE_QTY_OF_PRODUCT_IN_CART,
+            id:1
+        })
+        const updatedproduct = {...newProduct,qty:newProduct.qty -1}
+        expect(newstate).toEqual({
+            products:[],
+            electronics:[],
+            healthbeuty:[],
+            cart:[updatedproduct]
+                  
+        })
+
+    })
+    it('should delete the selected product',()=>{
+        const newstate = productsReducer(currentState,{
+            type:DELETE_PRODUCT_IN_CART,
+            id:1
+        })
+        expect(newstate).toEqual({
+            products:[],
+            electronics:[],
+            healthbeuty:[],
+            cart:[]
+        })
+
     })
 })

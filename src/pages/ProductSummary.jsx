@@ -22,7 +22,6 @@ import {  fetchProducts ,IncreamentProduct ,decreaseQuantityOfProduct ,
 class ProductSummary extends Component {
 
     render() { 
-        console.log('from the productssummary',this.props)
         return ( 
             <div>
                 <Header />
@@ -38,7 +37,7 @@ class ProductSummary extends Component {
                                     </ul>
                                 <h3>  SHOPPING CART [{this.props.cart.length}]<Link to="/products" className="btn btn-large pull-right">
                                     <i className="icon-arrow-left" /> Continue Shopping </Link></h3>	
-                                    {/* <small>{this.state.Items} {this.state.Items >1 ?'Items':'Item' }</small> */}
+                                    <small>{this.props.cart.length} {this.props.cart.length >1 ?'Items':'Item' }</small>
                                     <hr className="soft" />
                                     <Registered />
                                     <Slip {...this.props} />

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import LoginForm from './login';
 import{Link} from 'react-router-dom';
 const Navbar =() => {

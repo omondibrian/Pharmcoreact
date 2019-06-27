@@ -4,7 +4,6 @@ import ListVeiwProduct from './listViewProduct';
 class Listveiw extends Component {
     
     render() { 
-        console.log(this.props)
         const Listitems =this.props.products.map((product) => <ListVeiwProduct key={product.id} {...product} addtocart={this.props.addToCart} />)
         return ( 
             <div className="tab-pane active" >

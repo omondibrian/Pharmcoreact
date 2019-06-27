@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 class Registered extends Component {
     state = {
         username:'',
@@ -35,12 +36,12 @@ class Registered extends Component {
                             </div>
                             <div className="control-group">
                                     <div className="controls">
-                                    <button type="submit" className="btn">Sign in</button> OR <a href="/registration" className="btn">Register Now!</a>
+                                    <button type="submit" className="btn">Sign in</button> OR <Link to="/registration" className="btn">Register Now!</Link>
                                     </div>
                             </div>
                             <div className="control-group">
                                     <div className="controls">
-                                    <a href="forgetpass.html" style={{textDecoration: 'underline'}}>Forgot password ?</a>
+                                    <Link to="/forgetpass" style={{textDecoration: 'underline'}}>Forgot password ?</Link>
                                     </div>
                             </div>
                         </form>

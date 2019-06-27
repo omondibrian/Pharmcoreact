@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import Sidebar from '../components/sidebar';
 import Header from '../components/header';
-import Products from '../pages/jsonstorage/products.json';
+
+//redux connection
+import {connect} from 'react-redux'
+import {  fetchProducts } from '../redux/actions/productsaction'
+
 class RegistrationForm extends Component {
+  componentWillMount(){
+    this.props.fetchProducts();
+ }
     state = { title:null,
               firstname:null,
               lastname:null,
@@ -42,7 +49,7 @@ class RegistrationForm extends Component {
   <div name="mainBody">
     <div classname="container">
       <div classname="row">
-          <Sidebar {...Products} />
+      <Sidebar {...this.props} />
          <div className="span9">
 
         <ul className="breadcrumb">
@@ -212,4 +219,13 @@ class RegistrationForm extends Component {
     }
 }
  
-export default RegistrationForm;
+//all the required props are maped from the current state of the store
+const MapStateToProps = (state) =>({
+  products:state.products.products,
+  electronics:state.products.electronics,
+  healthbeuty:state.products.healthbeuty,
+  cart:state.products.cart
+})
+
+
+export default connect(MapStateToProps,{fetchProducts})(RegistrationForm);
